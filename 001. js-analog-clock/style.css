@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+
+:root {
+  --clock-size: 200px;
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: rgb(2, 177, 255);
+  background: radial-gradient(circle, #02b1ff 50%, #0071cc 100%);
+  font: normal 18px/1.6em 'Titillium Web', sans-serif;
+  letter-spacing: 0.35px;
+  color: white;
+}
+
+h1 {
+  position: relative;
+  flex-basis: 2em;
+}
+
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.clock::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  filter: blur(4px);
+}
+
+.clock .scale-segment {
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid white;
+  width: 10px;
+}
+
+.clock .hand {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 1px 1px 2px #0071cc;
+  transform: translateY(-50%);
+  transform-origin: bottom;
+  justify-self: center;
+}
+
+.clock .hour.hand {
+  height: calc(var(--clock-size) / 2 - 40px);
+}
+
+.clock .minute.hand {
+  height: calc(var(--clock-size) / 2 - 25px);
+}
+
+.clock .second.hand {
+  height: calc(var(--clock-size) / 2 - 15px);
+  border: 1px solid #c70039;
+}
