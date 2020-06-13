@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+
+/* DEFAULTS */
+:root {
+  --borderColor: #ffffff;
+  --spacing: 0;
+  --corners: 0;
+  --shadow: 0;
+  --blur: 0;
+  --brightness: 0;
+  --contrast: 0;
+  --grayscale: 0;
+  --hueRotate: 0;
+  --invert: 0;
+  --opacity: 0;
+  --saturate: 0;
+  --sepia: 0;
+}
+
+/* COMMON */
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font: normal 16px/1.6em 'Titillium Web', sans-serif;
+  letter-spacing: 0.35px;
+  background: #68bbe3;
+  background: radial-gradient(circle, #d9e4ec 50%, #b7cfdc 100%);
+  color: #385e72;
+}
+
+h1,
+h2,
+h3 {
+  padding-bottom: 0.3em;
+  margin: 24px 0 16px 0;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 16px 0;
+}
+
+a {
+  outline: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* CONTROL */
+label {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+input {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: none;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+/* CONTROL/COLOR */
+input[type='color'] {
+  position: relative;
+  height: 32px !important;
+  width: 32px !important;
+  clip-path: circle(30%);
+  cursor: pointer;
+}
+
+/* CONTROL/RANGE */
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  border: 1px solid #145da0;
+  height: 0;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: #145da0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+  height: 12px;
+  width: 12px;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  box-sizing: border-box;
+  width: 600px;
+}
+
+/* CONTROL PANEL */
+.control-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.control-panel label {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  width: 180px;
+}
+
+.control-panel label.borderColor {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* CARD */
+.card-container {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  width: 500px;
+  border: var(--spacing) solid var(--borderColor);
+  border-radius: var(--corners);
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  filter: blur(var(--blur)) brightness(var(--brightness)) contrast(var(--contrast)) grayscale(var(--grayscale))
+    hue-rotate(var(--hueRotate)) invert(var(--invert)) opacity(var(--opacity)) saturate(var(--saturate))
+    sepia(var(--sepia));
+}

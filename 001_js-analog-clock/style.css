@@ -15,7 +15,7 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background: rgb(2, 177, 255);
+  background: #02b1ff;
   background: radial-gradient(circle, #02b1ff 50%, #0071cc 100%);
   font: normal 16px/1.6em 'Titillium Web', sans-serif;
   letter-spacing: 0.35px;
