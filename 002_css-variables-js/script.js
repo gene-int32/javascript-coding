@@ -135,9 +135,9 @@ class ControlPanel {
 }
 
 const cp = new ControlPanel(id('controlPanel'), [
-  new Control('borderColor', 'Border Color', {type: 'color', value: '#00afee'}),
-  new Control('spacing', 'Spacing', {type: 'range', max: 50, value: 8}, pixelPipe),
-  new Control('corners', 'Corners', {type: 'range', max: 200, value: 24}, pixelPipe),
+  new Control('borderColor', 'Border Color', {type: 'color', value: '#ffffff'}),
+  new Control('spacing', 'Spacing', {type: 'range', max: 30, value: 15}, pixelPipe),
+  new Control('corners', 'Corners', {type: 'range', max: 200, value: 100}, pixelPipe),
   new Control('brightness', 'Brightness', {type: 'range', max: 200, value: 100}, percentPipe),
   new Control('contrast', 'Contrast', {type: 'range', max: 200, value: 100}, percentPipe),
   new Control('saturate', 'Saturate', {type: 'range', max: 200, value: 100}, percentPipe),
