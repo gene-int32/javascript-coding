@@ -31,13 +31,14 @@ h1 {
 
 ul {
   display: flex;
+  justify-content: space-between;
+  min-width: 400px;
   list-style: none;
 }
 
 ul li label {
   display: block;
   position: relative;
-  margin: 0 16px;
   -webkit-tap-highlight-color: transparent;
 }
 
