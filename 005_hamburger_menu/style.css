@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
 
+:root {
+  --animate: 0.2s ease-out;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,21 +26,13 @@ h1 {
   text-align: center;
 }
 
-/* TOGGLER */
-.hamburger {
+/* H.WRAPPER */
+.hamburger-wrap {
   position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  margin: 16px;
-  cursor: pointer;
-  background: rgba(65, 32, 169, 0.75);
-  -webkit-tap-highlight-color: transparent;
 }
 
-.hamburger .toggler {
+/* H.TOGGLER */
+.hamburger-wrap .toggler {
   position: absolute;
   top: 0;
   left: 0;
@@ -45,47 +41,69 @@ h1 {
   visibility: hidden;
 }
 
-.hamburger > div {
+/* H.ICON */
+.hamburger-wrap .hamburger {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 16px;
+  background: rgba(65, 32, 169, 0.75);
+  cursor: pointer;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburger-wrap .hamburger div {
   position: relative;
   width: 16px;
   height: 2px;
+  border-radius: 1px;
   background: white;
-  transition: transform 0.2s ease-out;
+  transition: transform var(--animate);
 }
 
-.hamburger > div::before,
-.hamburger > div::after {
+.hamburger-wrap .hamburger div::before,
+.hamburger-wrap .hamburger div::after {
   content: '';
+  display: block;
   width: 100%;
   height: 2px;
+  border-radius: 1px;
   background: inherit;
   position: absolute;
   top: -7px;
-  transition: transform 0.2s ease-out, top 0.2s ease-out;
+  transition: transform var(--animate), top var(--animate);
 }
 
-.hamburger > div::after {
+.hamburger-wrap .hamburger div::after {
   top: 7px;
 }
 
 /* Animate on checked */
-.hamburger .toggler:checked + div {
+.hamburger-wrap .toggler:checked + .hamburger div {
   transform: rotate(135deg);
 }
 
-.hamburger .toggler:checked + div::before,
-.hamburger .toggler:checked + div::after {
+.hamburger-wrap .toggler:checked + .hamburger div::before,
+.hamburger-wrap .toggler:checked + .hamburger div::after {
   top: 0;
   transform: rotate(90deg);
 }
 
 /* Animate on checked & hover */
-.hamburger .toggler:checked:hover + div {
+.hamburger-wrap .toggler:checked:hover + .hamburger div {
   transform: rotate(225deg);
 }
 
-/* MENU */
-.hamburger .menu {
+/* H.MENU */
+.hamburger-wrap.on-init .menu {
+  transition: transform var(--animate), opacity var(--animate);
+}
+
+.hamburger-wrap .menu {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -93,32 +111,39 @@ h1 {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vh;
-  height: 100vh;
   list-style: none;
   transform-origin: top left;
-  transform: scale(0) translateX(calc(100vw / 2 - 100vh / 2));
+  transform: scale(0);
   opacity: 0;
-  transition: transform 0.2s ease-in, opacity 0.2s ease-in;
 }
 
-.hamburger .toggler:checked ~ .menu {
-  transform: scale(1) translateX(calc(100vw / 2 - 100vh / 2));
+.hamburger-wrap .toggler:checked ~ .menu {
   opacity: 1;
 }
 
+@media (orientation: landscape) {
+  .hamburger-wrap .menu {
+    width: 100vh;
+    height: 100vh;
+  }
+
+  .hamburger-wrap .toggler:checked ~ .menu {
+    transform: scale(1) translateX(calc(100vw / 2 - 100vh / 2));
+  }
+}
+
 @media (orientation: portrait) {
-  .hamburger .menu {
+  .hamburger-wrap .menu {
     width: 100vw;
     height: 100vw;
   }
 
-  .hamburger .toggler:checked ~ .menu {
+  .hamburger-wrap .toggler:checked ~ .menu {
     transform: scale(1) translateY(calc(100vh / 2 - 100vw / 2));
   }
 }
 
-.hamburger .menu::before {
+.hamburger-wrap .menu::before {
   content: '';
   display: block;
   position: absolute;
@@ -128,21 +153,21 @@ h1 {
   height: 100%;
   border-radius: 50%;
   background: rgba(23, 11, 59, 0.9);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   z-index: -1;
 }
 
-.hamburger .menu li a {
+.hamburger-wrap .menu li a {
   display: block;
   text-align: center;
   font-weight: 700;
   font-size: 1.4rem;
   padding: 16px 0;
   cursor: pointer;
-  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  transition: transform var(--animate), color var(--animate);
 }
 
-.hamburger .menu li:hover a {
+.hamburger-wrap .menu li:hover a {
   transform: translateX(8px);
   color: #9b0dea;
 }

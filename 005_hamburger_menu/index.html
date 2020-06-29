@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <label class="hamburger">
-      <input type="checkbox" class="toggler" />
-      <div></div>
+    <div class="hamburger-wrap">
+      <input type="checkbox" id="hamToggler__1" class="toggler" />
+      <label class="hamburger" for="hamToggler__1">
+        <div></div>
+      </label>
       <ul class="menu">
-        <li><a>About Us</a></li>
-        <li><a>Prices</a></li>
-        <li><a>Contacts</a></li>
+        <li>
+          <label for="hamToggler__1"><a>About Us</a></label>
+        </li>
+        <li>
+          <label for="hamToggler__1"><a>Prices</a></label>
+        </li>
+        <li>
+          <label for="hamToggler__1"><a>Contacts</a></label>
+        </li>
       </ul>
-    </label>
+    </div>
     <div class="content">
       <h1>Hamburger Menu</h1>
       <p class="text-center">
@@ -23,5 +31,9 @@
         atque, minus fugiat laboriosam nam praesentium nulla molestiae id maxime! Sit quam nobis modi!
       </p>
     </div>
+    <script>
+      // Workaround for setup animation
+      document.querySelector('.hamburger-wrap').classList.add('on-init');
+    </script>
   </body>
 </html>
